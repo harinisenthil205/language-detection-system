@@ -11,7 +11,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
-# ---------- DATABASE ----------
 def get_db():
     conn = sqlite3.connect("database.db")
     conn.row_factory = sqlite3.Row
@@ -38,7 +37,6 @@ def init_db():
 
 init_db()
 
-# ---------- USER ----------
 class User(UserMixin):
     def __init__(self, id, username):
         self.id = id
@@ -88,12 +86,10 @@ LANGUAGE_MAP = {
     "ml": "Malayalam"
 }
 
-# ---------- ROUTES ----------
 @app.route("/")
 def home():
     return redirect("/dashboard")
 
-# DASHBOARD
 @app.route("/dashboard")
 @login_required
 def dashboard():
@@ -104,7 +100,6 @@ def dashboard():
     conn.close()
     return render_template("dashboard.html", history=history)
 
-# DETECT
 @app.route("/detect", methods=["GET","POST"])
 @login_required
 def detect_page():
@@ -127,7 +122,6 @@ def detect_page():
 
     return render_template("detect.html", result=result)
 
-# HISTORY
 @app.route("/history")
 @login_required
 def history():
@@ -138,7 +132,6 @@ def history():
     conn.close()
     return render_template("history.html", rows=rows)
 
-# GRAPHS
 @app.route("/graphs")
 @login_required
 def graphs():
@@ -155,13 +148,14 @@ def graphs():
 
     return render_template("graphs.html", labels=labels, values=values)
 
-# LOGOUT
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect("/login")
 
-# RUN
 if __name__ == "__main__":
     app.run(debug=True)
+import os
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
