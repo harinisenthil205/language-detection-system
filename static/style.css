@@ -1,0 +1,120 @@
+/* 🌈 Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f6fa;   /* light white/grey */
+    color: #000;           /* black text */
+}
+
+/* Center pages */
+.center {
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #4f46e5, #9333ea);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: #2c2c54;
+    color: white;
+    position: fixed;
+    padding: 20px;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+}
+
+.sidebar button, .sidebar a {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar button:hover, .sidebar a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main content */
+.main {
+    margin-left: 240px;
+    padding: 30px;
+    background: #f5f6fa;
+    min-height: 100vh;
+}
+
+/* Sections */
+.section {
+    display: block;
+    opacity: 1;
+    transform: none;
+}
+
+.section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Card style */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: #000;
+}
+
+/* Result box */
+.result-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(45deg, #22c55e, #4ade80);
+    color: white;
+    border-radius: 8px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Table */
+table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th {
+    background: #4f46e5;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+}

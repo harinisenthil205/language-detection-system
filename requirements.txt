@@ -1,0 +1,7 @@
+flask
+flask-login
+pandas
+scikit-learn
+werkzeug
+PyJWT
+gunicorn

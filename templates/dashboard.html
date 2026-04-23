@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f6fa;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #ffffff;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 8px;
+        }
+
+        .sidebar a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Main */
+        .main {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>{{ current_user.username }}</h2>
+
+    <a href="/dashboard"><i class="fa fa-home"></i> Home</a>
+    <a href="/detect"><i class="fa fa-search"></i> Detect</a>
+    <a href="/graphs"><i class="fa fa-chart-bar"></i> Graphs</a>
+    <a href="/history"><i class="fa fa-clock"></i> History</a>
+    <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <div class="topbar">
+        <h1>Dashboard</h1>
+        <p>Welcome, {{ current_user.username }}</p>
+    </div>
+
+    <div class="card">
+        <h3>About</h3>
+        <p>Use the menu on the left to detect languages, view history, and analyze your data.</p>
+    </div>
+
+    <div class="card">
+        <h3>How to Use</h3>
+        <ol>
+            <li>Go to Detect to identify language</li>
+            <li>View history</li>
+            <li>Check graphs</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>

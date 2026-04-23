@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphs</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f6fa;
+        }
+
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: white;
+            border-right: 1px solid #ddd;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar a {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 8px;
+        }
+
+        .sidebar a:hover {
+            background: #f0f0f0;
+        }
+
+        .main {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <a href="/dashboard"><i class="fa fa-home"></i> Home</a>
+    <a href="/detect"><i class="fa fa-search"></i> Detect</a>
+    <a href="/graphs"><i class="fa fa-chart-bar"></i> Graphs</a>
+    <a href="/history"><i class="fa fa-clock"></i> History</a>
+    <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+    <h1>📊 Language Analysis</h1>
+
+    <!-- Bar Chart -->
+    <div class="card">
+        <h3>Bar Chart - Language Frequency</h3>
+        <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="card">
+        <h3>Pie Chart - Language Distribution</h3>
+        <canvas id="pieChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+const labels = {{ labels | tojson }};
+const values = {{ values | tojson }};
+
+// Bar Chart
+new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+        labels: labels,
+        datasets: [{
+            label: "Language Count",
+            data: values
+        }]
+    }
+});
+
+// Pie Chart
+new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: values
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>History</title>
+
+<style>
+body { margin:0; font-family:Arial; background:#f5f6fa; }
+
+.sidebar {
+    width:220px; height:100vh; background:#2c2c54;
+    color:white; position:fixed; padding:20px;
+}
+
+.sidebar a {
+    display:block; color:white; padding:10px; margin:10px 0;
+    text-decoration:none;
+}
+.sidebar a:hover { background:#40407a; }
+
+.main {
+    margin-left:240px; padding:30px;
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th {
+    background:#4f46e5;
+    color:white;
+    padding:10px;
+}
+
+td {
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>{{ current_user.username }}</h2>
+
+    <a href="/dashboard">Home</a>
+    <a href="/detect">Detect</a>
+    <a href="/graphs">Graphs</a>
+    <a href="/history">History</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+    <h1>Detection History</h1>
+
+    <table>
+        <tr>
+            <th>Text</th>
+            <th>Language</th>
+            <th>Timestamp</th>
+        </tr>
+
+        {% for row in rows %}
+        <tr>
+            <td>{{ row.text }}</td>
+            <td>{{ row.language }}</td>
+            <td>{{ row.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>

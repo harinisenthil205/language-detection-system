@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Detect</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body { margin:0; font-family:Segoe UI; background:#f5f6fa; }
+
+.sidebar {
+    width:220px; height:100vh; background:#fff;
+    border-right:1px solid #ddd;
+    position:fixed; padding:20px;
+}
+
+.sidebar a {
+    display:flex; gap:10px; padding:10px;
+    text-decoration:none; color:#333;
+}
+
+.main {
+    margin-left:240px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.card {
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    width:400px;
+}
+
+textarea { width:100%; padding:10px; margin-bottom:10px; }
+
+button {
+    width:100%; padding:10px;
+    background:#4f46e5; color:white;
+    border:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <a href="/dashboard"><i class="fa fa-home"></i> Home</a>
+    <a href="/detect"><i class="fa fa-search"></i> Detect</a>
+    <a href="/graphs"><i class="fa fa-chart-bar"></i> Graphs</a>
+    <a href="/history"><i class="fa fa-clock"></i> History</a>
+    <a href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+</div>
+
+<div class="main">
+    <div class="card">
+        <h2>Detect Language</h2>
+
+        <form method="POST">
+            <textarea name="text" rows="4"></textarea>
+            <button>Detect</button>
+        </form>
+
+        {% if result %}
+        <p><b>Result:</b> {{ result }}</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
