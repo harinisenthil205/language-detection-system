@@ -1,18 +1,15 @@
-/* 🌈 Background */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #f5f6fa;   /* light white/grey */
-    color: #000;           /* black text */
+    background: #f5f6fa;   
+    color: #000;          
 }
 
-/* Center pages */
 .center {
     text-align: center;
     margin-top: 100px;
 }
 
-/* Buttons */
 .btn {
     padding: 10px 20px;
     background: linear-gradient(45deg, #4f46e5, #9333ea);
@@ -29,7 +26,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Sidebar */
 .sidebar {
     width: 220px;
     height: 100vh;
@@ -61,7 +57,6 @@ body {
     background: rgba(255,255,255,0.2);
 }
 
-/* Main content */
 .main {
     margin-left: 240px;
     padding: 30px;
@@ -69,7 +64,6 @@ body {
     min-height: 100vh;
 }
 
-/* Sections */
 .section {
     display: block;
     opacity: 1;
@@ -82,7 +76,6 @@ body {
     transform: translateY(0);
 }
 
-/* Card style */
 .card {
     background: white;
     padding: 20px;
@@ -91,7 +84,6 @@ body {
     color: #000;
 }
 
-/* Result box */
 .result-box {
     margin-top: 15px;
     padding: 15px;
@@ -101,7 +93,6 @@ body {
     animation: fadeIn 0.5s ease;
 }
 
-/* Table */
 table {
     background: white;
     border-radius: 10px;
@@ -113,7 +104,6 @@ th {
     color: white;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {opacity: 0; transform: scale(0.9);}
     to {opacity: 1; transform: scale(1);}
